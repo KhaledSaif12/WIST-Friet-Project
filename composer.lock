@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "52539a4ee64608cdf62acc3e52bbdf3f",
-=======
-    "content-hash": "22a0bcbab34b9a4b5b8d9295f828e3d4",
->>>>>>> 555c5c59c46cc403b4e047095f7cd5c55ee939a3
+    "content-hash": "d07d537e395dc26b702f82cef5096aa2",
     "packages": [
         {
             "name": "brick/math",
@@ -1399,7 +1395,6 @@
             "time": "2023-12-03T19:50:20+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "intervention/gif",
             "version": "4.1.0",
             "source": {
@@ -1421,36 +1416,11 @@
                 "phpunit/phpunit": "^10.0",
                 "slevomat/coding-standard": "~8.0",
                 "squizlabs/php_codesniffer": "^3.8"
-=======
-            "name": "kkszymanowski/traitor",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KKSzymanowski/Traitor.git",
-                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KKSzymanowski/Traitor/zipball/97d12e2b045fcc4e132fed5ddee3b1dcff409989",
-                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^1.0|^2.0|^3.0|^4.0|^5.0",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "8.*"
->>>>>>> 555c5c59c46cc403b4e047095f7cd5c55ee939a3
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
                     "Intervention\\Gif\\": "src"
-=======
-                    "Traitor\\": "src/"
->>>>>>> 555c5c59c46cc403b4e047095f7cd5c55ee939a3
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1459,7 +1429,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Oliver Vogel",
                     "email": "oliver@intervention.io",
                     "homepage": "https://intervention.io/"
@@ -1560,7 +1529,40 @@
                 }
             ],
             "time": "2024-07-05T13:35:01+00:00"
-=======
+        },
+        {
+            "name": "kkszymanowski/traitor",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KKSzymanowski/Traitor.git",
+                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KKSzymanowski/Traitor/zipball/97d12e2b045fcc4e132fed5ddee3b1dcff409989",
+                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^1.0|^2.0|^3.0|^4.0|^5.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Traitor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
                     "name": "Kuba Szymanowski",
                     "email": "kuba.szymanowski@inf24.pl"
                 }
@@ -1577,7 +1579,6 @@
                 "source": "https://github.com/kkszymanowski/traitor"
             },
             "time": "2024-01-29T09:23:11+00:00"
->>>>>>> 555c5c59c46cc403b4e047095f7cd5c55ee939a3
         },
         {
             "name": "laravel/framework",

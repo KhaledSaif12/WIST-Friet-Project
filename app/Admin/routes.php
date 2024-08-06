@@ -2,6 +2,7 @@
 
 use App\Admin\Controllers\AddressesControllers;
 use App\Admin\Controllers\CategoriesControllers;
+use App\Admin\Controllers\DeliveryDetailsControllers;
 use App\Admin\Controllers\SeasonsControllers;
 use App\Admin\Controllers\UserController;
 use Illuminate\Routing\Router;
@@ -22,11 +23,9 @@ Route::group([
     $router->resource('addresses', AddressesControllers::class);
     $router->resource('farms', FarmsControllers::class);
     $router->resource('products', ProductsControllers::class);
-
-
-
-
-
+    $router->resource('delivery-details', DeliveryDetailsControllers::class);
+    $router->resource('orders', OrdersControllers::class);
+    $router->resource('order-items', OrderItemsControllers::class);
 
 
 
