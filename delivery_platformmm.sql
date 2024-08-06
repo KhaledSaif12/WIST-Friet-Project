@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2024 at 10:19 PM
+-- Generation Time: Aug 06, 2024 at 05:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -138,7 +138,49 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (55, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2024-08-05 03:33:06', '2024-08-05 03:33:06'),
 (56, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 16:16:11', '2024-08-05 16:16:11'),
 (57, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 16:16:31', '2024-08-05 16:16:31'),
-(58, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2024-08-05 16:16:43', '2024-08-05 16:16:43');
+(58, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2024-08-05 16:16:43', '2024-08-05 16:16:43'),
+(59, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 17:34:48', '2024-08-05 17:34:48'),
+(60, 1, 'admin/auth/users', 'GET', '127.0.0.1', '[]', '2024-08-05 17:34:51', '2024-08-05 17:34:51'),
+(61, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 17:34:53', '2024-08-05 17:34:53'),
+(62, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 17:34:57', '2024-08-05 17:34:57'),
+(63, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 17:53:17', '2024-08-05 17:53:17'),
+(64, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 17:53:22', '2024-08-05 17:53:22'),
+(65, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 18:34:15', '2024-08-05 18:34:15'),
+(66, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 18:34:38', '2024-08-05 18:34:38'),
+(67, 1, 'admin/auth/logout', 'GET', '127.0.0.1', '[]', '2024-08-05 18:34:44', '2024-08-05 18:34:44'),
+(68, 1, 'admin', 'GET', '127.0.0.1', '[]', '2024-08-05 18:35:11', '2024-08-05 18:35:11'),
+(69, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 18:35:14', '2024-08-05 18:35:14'),
+(70, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 18:35:25', '2024-08-05 18:35:25'),
+(71, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 18:35:36', '2024-08-05 18:35:36'),
+(72, 1, 'admin/users/create', 'GET', '127.0.0.1', '[]', '2024-08-05 18:35:41', '2024-08-05 18:35:41'),
+(73, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 18:36:00', '2024-08-05 18:36:00'),
+(74, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 18:36:03', '2024-08-05 18:36:03'),
+(75, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2024-08-05 18:36:08', '2024-08-05 18:36:08'),
+(76, 1, 'admin/auth/users', 'GET', '127.0.0.1', '[]', '2024-08-05 19:23:52', '2024-08-05 19:23:52'),
+(77, 1, 'admin/auth/users/create', 'GET', '127.0.0.1', '[]', '2024-08-05 19:23:54', '2024-08-05 19:23:54'),
+(78, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '[]', '2024-08-05 19:24:05', '2024-08-05 19:24:05'),
+(79, 1, 'admin/auth/roles/create', 'GET', '127.0.0.1', '[]', '2024-08-05 19:24:07', '2024-08-05 19:24:07'),
+(80, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2024-08-05 19:24:11', '2024-08-05 19:24:11'),
+(81, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 19:24:14', '2024-08-05 19:24:14'),
+(82, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 19:31:44', '2024-08-05 19:31:44'),
+(83, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 19:33:16', '2024-08-05 19:33:16'),
+(84, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":null}', '2024-08-05 19:36:36', '2024-08-05 19:36:36'),
+(85, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"http:\\/\\/127.0.0.1:8000\\/api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":null}', '2024-08-05 19:36:59', '2024-08-05 19:36:59'),
+(86, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 20:02:25', '2024-08-05 20:02:25'),
+(87, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 20:07:46', '2024-08-05 20:07:46'),
+(88, 1, 'admin/users/1', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\"}', '2024-08-05 20:07:50', '2024-08-05 20:07:50'),
+(89, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 20:07:50', '2024-08-05 20:07:50'),
+(90, 1, 'admin/users/create', 'GET', '127.0.0.1', '[]', '2024-08-05 20:07:52', '2024-08-05 20:07:52'),
+(91, 1, 'admin/users', 'POST', '127.0.0.1', '{\"name\":\"\\u0627\\u062d\\u0645\\u062f \\u0645\\u0646\\u0635\\u0648\\u0631 \\u0647\\u0632\\u0627\\u0639 \\u0639\\u0628\\u062f \\u0627\\u0644\\u0628\\u0627\\u0631\\u064a \\u0627\\u0644\\u0639\\u0641\\u0648\\u0631\\u064a\",\"email\":\"ahmedalafoori@gmail.com\",\"email_verified_at\":\"2024-08-05 23:07:52\",\"password\":\"*****-filtered-out-*****\",\"remember_token\":null,\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\"}', '2024-08-05 20:08:09', '2024-08-05 20:08:09'),
+(92, 1, 'admin/users', 'GET', '127.0.0.1', '[]', '2024-08-05 20:08:09', '2024-08-05 20:08:09'),
+(93, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 20:20:29', '2024-08-05 20:20:29'),
+(94, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":null,\"key\":[\"\\u0634\\u0634\",\"\\u0634\\u0634\"],\"val\":[\"\\u0634\\u0634\",\"\\u0634\\u0634\"]}', '2024-08-05 20:21:08', '2024-08-05 20:21:08'),
+(95, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":null,\"key\":[\"ahmed\"],\"val\":[\"aaaaa\"]}', '2024-08-05 20:21:32', '2024-08-05 20:21:32'),
+(96, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 20:21:36', '2024-08-05 20:21:36'),
+(97, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":\"ahmedalafoori@gmail.com\"}', '2024-08-05 20:21:59', '2024-08-05 20:21:59'),
+(98, 1, 'admin/api-tester/handle', 'POST', '127.0.0.1', '{\"uri\":\"api\\/user\",\"method\":\"GET\",\"_token\":\"0q1wrLXkaBayEPNvibM4rbx5Cim7OKtCXMq5IDOa\",\"user\":\"admin\"}', '2024-08-05 20:22:36', '2024-08-05 20:22:36'),
+(99, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 20:22:59', '2024-08-05 20:22:59'),
+(100, 1, 'admin/api-tester', 'GET', '127.0.0.1', '[]', '2024-08-05 20:59:22', '2024-08-05 20:59:22');
 
 -- --------------------------------------------------------
 
@@ -324,7 +366,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2016_01_04_173148_create_admin_tables', 2);
+(5, '2016_01_04_173148_create_admin_tables', 2),
+(6, '2024_08_05_210836_laratrust_setup_tables', 3);
 
 -- --------------------------------------------------------
 
@@ -336,6 +379,44 @@ CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission_role`
+--
+
+CREATE TABLE `permission_role` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission_user`
+--
+
+CREATE TABLE `permission_user` (
+  `permission_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -356,6 +437,59 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 2, 'Personal Access Token', '2b9d687b67670f496e2906c1025b0e1ffce2ccb921ae56ea12ef42437989693b', '[\"*\"]', NULL, NULL, '2024-08-05 21:25:28', '2024-08-05 21:25:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'client', 'client_Pepole', NULL, NULL, NULL),
+(2, 'Delivery_driver', 'Delivery_driver_pepole', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_user`
+--
+
+CREATE TABLE `role_user` (
+  `role_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `role_user`
+--
+
+INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
+(1, 1, 'App\\Models\\User'),
+(1, 3, 'App\\Models\\User'),
+(2, 3, 'App\\Models\\User'),
+(1, 4, 'App\\Models\\User'),
+(1, 5, 'App\\Models\\User');
 
 -- --------------------------------------------------------
 
@@ -379,7 +513,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'احمد منصور هزاع عبد الباري العفوري', 'ahmedalafoori@gmail.com', '2024-08-05 03:11:46', '$2y$12$21gNbpSpal.HATuWR34jJumsscKH6H8oHq4nqbrEkqA335NO6lUBq', NULL, '2024-08-05 03:12:30', '2024-08-05 03:12:30');
+(2, 'احمد منصور هزاع عبد الباري العفوري', 'ahmedalafoori@gmail.com', '2024-08-05 20:07:52', '$2y$12$e9v.EosbHKm0mAUa9xHVau3KZy2B4q1K0YwrtD/6tU0SvhoaIuU4C', NULL, '2024-08-05 20:08:09', '2024-08-05 20:08:09'),
+(3, 'احمد منصور', 'khaled@gmail.comnnn5', NULL, '$2y$12$.FAete.g1lME8xs.OTGvh.oREjjdfRbW4KACEY84Za2VY0LWn3xZS', NULL, '2024-08-05 21:59:50', '2024-08-05 21:59:50'),
+(4, 'John Doe', 'johndoe@example.com', NULL, '$2y$12$2QV.lP8o7OIpsd5BsxRYEOOoxYMxB4gdXdny20j7RNCCRaGJmoAxG', NULL, '2024-08-05 22:05:54', '2024-08-05 22:05:54'),
+(5, 'John Doerr', 'johndoe@example.comr', NULL, '$2y$12$ZemIkzrBtbP8o4BQX9QMUO5WOATGRn/ttYvwxWgvEWTfrwsA.btF.', NULL, '2024-08-05 22:52:24', '2024-08-05 22:52:24');
 
 --
 -- Indexes for dumped tables
@@ -465,12 +602,47 @@ ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_unique` (`name`);
+
+--
+-- Indexes for table `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `permission_role_role_id_foreign` (`role_id`);
+
+--
+-- Indexes for table `permission_user`
+--
+ALTER TABLE `permission_user`
+  ADD PRIMARY KEY (`user_id`,`permission_id`,`user_type`),
+  ADD KEY `permission_user_permission_id_foreign` (`permission_id`);
+
+--
 -- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_unique` (`name`);
+
+--
+-- Indexes for table `role_user`
+--
+ALTER TABLE `role_user`
+  ADD PRIMARY KEY (`user_id`,`role_id`,`user_type`),
+  ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
 -- Indexes for table `users`
@@ -493,7 +665,7 @@ ALTER TABLE `admin_menu`
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `admin_permissions`
@@ -523,19 +695,54 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `permission_user`
+--
+ALTER TABLE `permission_user`
+  ADD CONSTRAINT `permission_user_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `role_user`
+--
+ALTER TABLE `role_user`
+  ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
