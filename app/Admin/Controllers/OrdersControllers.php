@@ -32,12 +32,12 @@ class OrdersControllers extends AdminController
         $grid->column('id', 'ID')->sortable();
         $grid->column('user.name', 'User Name'); // Display user name
         $grid->column('address.name', 'Address Name'); // Display address name
-        $grid->column('delivery.name', 'Delivery Name'); // Display delivery name
-        $grid->column('order_delivery_time', 'Order Delivery Time');
-        $grid->column('delivery_cost', 'Delivery Cost');
-        $grid->column('total_order_price', 'Total Order Price');
-        $grid->column('order_status', 'Order Status');
-        $grid->column('payment_method', 'Payment Method');
+        $grid->column('delivery.vehiclenumber', 'Vehicle Number'); // Display delivery name
+        $grid->column('orderdelivrytime', 'Order Delivery Time');
+        $grid->column('deliverycost', 'Delivery Cost');
+        $grid->column('totalorderprice', 'Total Order Price');
+        $grid->column('orderstatas', 'Order Status');
+        $grid->column('paymentmethod', 'Payment Method');
         $grid->column('created_at', 'Created At');
         $grid->column('updated_at', 'Updated At');
 
@@ -57,12 +57,12 @@ class OrdersControllers extends AdminController
         $show->field('id', 'ID');
         $show->field('user.name', 'User Name'); // Display user name
         $show->field('address.name', 'Address Name'); // Display address name
-        $show->field('delivery.name', 'Delivery Name'); // Display delivery name
-        $show->field('order_delivery_time', 'Order Delivery Time');
-        $show->field('delivery_cost', 'Delivery Cost');
-        $show->field('total_order_price', 'Total Order Price');
-        $show->field('order_status', 'Order Status');
-        $show->field('payment_method', 'Payment Method');
+        $show->field('delivery.vehiclenumber', 'Vehicle Number'); // Display delivery name
+        $show->field('orderdelivrytime', 'Order Delivery Time');
+        $show->field('deliverycost', 'Delivery Cost');
+        $show->field('totalorderprice', 'Total Order Price');
+        $show->field('orderstatas', 'Order Status');
+        $show->field('paymentmethod', 'Payment Method');
         $show->field('created_at', 'Created At');
         $show->field('updated_at', 'Updated At');
 
@@ -83,17 +83,17 @@ class OrdersControllers extends AdminController
         )->rules('required');
         $form->select('address_id', 'Address')->options(Addresses::all()->pluck('name', 'id')
         )->rules('required');
-        $form->select('delivery_id', 'Delivery')->options(DeliveryDetails::all()->pluck('name', 'id')
+        $form->select('delivery_id', 'Vehicle Number')->options(DeliveryDetails::all()->pluck('vehiclenumber', 'id')
         )->rules('required');
-        $form->time('order_delivery_time', 'Order Delivery Time');
-        $form->decimal('delivery_cost', 'Delivery Cost')->rules('required');
-        $form->decimal('total_order_price', 'Total Order Price')->rules('required');
-        $form->select('order_status', 'Order Status')->options([
+        $form->time('orderdelivrytime', 'Order Delivery Time');
+        $form->decimal('deliverycost', 'Delivery Cost')->rules('required');
+        $form->decimal('totalorderprice', 'Total Order Price')->rules('required');
+        $form->select('orderstatas', 'Order Status')->options([
             'In preparation' => 'In preparation',
             'On the way to you' => 'On the way to you',
             'Delivered' => 'Delivered',
         ])->rules('required');
-        $form->select('payment_method', 'Payment Method')->options([
+        $form->select('paymentmethod', 'Payment Method')->options([
             'Credit Card' => 'Credit Card',
             'PayPal' => 'PayPal',
             'Bank Transfer' => 'Bank Transfer',

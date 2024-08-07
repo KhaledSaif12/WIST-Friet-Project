@@ -2,7 +2,10 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Categories;
+use App\Models\Farms;
 use \App\Models\Products;
+use App\Models\Seasons;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
@@ -28,18 +31,20 @@ class ProductsControllers extends AdminController
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('name', __('Name'));
-        $grid->column('price', __('Price'));
-        $grid->column('quantity', __('Quantity'));
-        $grid->column('photo', __('Photo'));
-        $grid->column('description', __('Description'));
-        $grid->column('category_id', __('Category'));
-        $grid->column('season_id', __('Season'));
-        $grid->column('farm_id', __('Farm'));
-        $grid->column('date', __('Date'));
-        $grid->column('productstatus', __('Product Status'));
+        $grid->column('prais', __('Price'))->display(function ($price) {
+            return '$' . number_format($price, 2);
+        });
+        $grid->column('quantity', __('Quantity'))->sortable();
+        $grid->column('photo', __('Photo'))->image('', 50, 50);
+        $grid->column('description', __('Description'))->limit(50);
+        $grid->column('category.name', __('Category'));
+        $grid->column('season.seasonsname', __('Season'));
+        $grid->column('farm.name', __('Farm'));
+        $grid->column('data', __('Date'))->sortable();
+        $grid->column('productstatus', __('Product Status'))->using([1 => 'Active', 0 => 'Inactive']);
         $grid->column('slug', __('Slug'));
-        $grid->column('created_at', __('Created At'));
-        $grid->column('updated_at', __('Updated At'));
+        $grid->column('created_at', __('Created At'))->sortable();
+        $grid->column('updated_at', __('Updated At'))->sortable();
 
         return $grid;
     }
@@ -56,15 +61,17 @@ class ProductsControllers extends AdminController
 
         $show->field('id', __('ID'));
         $show->field('name', __('Name'));
-        $show->field('price', __('Price'));
+        $show->field('prais', __('Price'))->as(function ($price) {
+            return '$' . number_format($price, 2);
+        });
         $show->field('quantity', __('Quantity'));
-        $show->field('photo', __('Photo'));
+        $show->field('photo', __('Photo'))->image();
         $show->field('description', __('Description'));
-        $show->field('category_id', __('Category'));
-        $show->field('season_id', __('Season'));
-        $show->field('farm_id', __('Farm'));
-        $show->field('date', __('Date'));
-        $show->field('productstatus', __('Product Status'));
+        $show->field('category.name', __('Category'));
+        $show->field('season.seasonsname', __('Season'));
+        $show->field('farm.name', __('Farm'));
+        $show->field('data', __('Date'));
+        $show->field('productstatus', __('Product Status'))->using([1 => 'Active', 0 => 'Inactive']);
         $show->field('slug', __('Slug'));
         $show->field('created_at', __('Created At'));
         $show->field('updated_at', __('Updated At'));
@@ -81,17 +88,23 @@ class ProductsControllers extends AdminController
     {
         $form = new Form(new Products());
 
-        $form->text('name', __('Name'))->required();
-        $form->decimal('price', __('Price'))->required();
-        $form->number('quantity', __('Quantity'))->required();
-        $form->image('photo', __('Photo'))->required();
-        $form->textarea('description', __('Description'))->required();
-        $form->select('category_id', __('Category'))->options('/api/categories')->required();
-        $form->select('season_id', __('Season'))->options('/api/seasons')->required();
-        $form->select('farm_id', __('Farm'))->options('/api/farms')->required();
-        $form->date('date', __('Date'))->required();
+        $form->text('name', __('Name'))->rules('required');
+        $form->decimal('prais', __('Price'))->rules('required|min:0'); // تصحيح الاسم من 'prais' إلى 'price'
+        $form->number('quantity', __('Quantity'))->rules('required|min:0');
+        $form->image('photo', __('Photo'))->rules('required')->uniqueName();
+        $form->textarea('description', __('Description'))->rules('required');
+        $form->select('category_id', __('Category'))->options(function () {
+            return Categories::all()->pluck('name', 'id')->toArray();
+        })->rules('required');
+        $form->select('season_id', __('Season'))->options(function () {
+            return Seasons::all()->pluck('seasonsname', 'id')->toArray(); // تأكد من أن هذا هو اسم العمود الصحيح في الجدول Seasons
+        })->rules('required');
+        $form->select('farm_id', __('Farm'))->options(function () {
+            return Farms::all()->pluck('name', 'id')->toArray();
+        })->rules('required');
+        $form->date('data', __('Date'))->rules('required'); // تأكد من تطابق اسم العمود مع قاعدة البيانات
         $form->switch('productstatus', __('Product Status'))->default(1);
-        $form->text('slug', __('Slug'))->required();
+        $form->text('slug', __('Slug'))->rules('required');
 
         return $form;
     }
