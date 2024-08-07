@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Farms extends Model
 {
-    
     // تحديد العلاقة مع نموذج User
     public function user()
     {
@@ -19,9 +17,4 @@ class Farms extends Model
     {
         return $this->belongsTo(Addresses::class);
     }
-    
-
-    
-
-    
 }
