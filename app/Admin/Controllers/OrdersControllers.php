@@ -51,7 +51,16 @@ class OrdersControllers extends AdminController
             'On the way to you' => 'warning',
             'Delivered' => 'success',
         ]);
-        $grid->column('paymentmethod', 'Payment Method');
+        $grid->column('paymentmethod', 'Payment Method')->display(function ($method) {
+            $colors = [
+                'Credit Card' => 'primary',
+                'PayPal' => 'success',
+                'Bank Transfer' => 'info',
+                'Upon delivery-Creamy computer' => 'warning',
+            ];
+            $color = $colors[$method] ?? 'secondary';
+            return "<span class='badge bg-$color'>$method</span>";
+        });
         $grid->column('created_at', 'Created At')->sortable()->display(function ($created_at) {
             return "<small class='text-muted'>" . date('Y-m-d H:i', strtotime($created_at)) . "</small>";
         });
@@ -92,7 +101,16 @@ class OrdersControllers extends AdminController
                 'Delivered' => 'success',
             ][$status] . "'>$status</span>";
         });
-        $show->field('paymentmethod', 'Payment Method');
+        $show->field('paymentmethod', 'Payment Method')->as(function ($method) {
+            $colors = [
+                'Credit Card' => 'primary',
+                'PayPal' => 'success',
+                'Bank Transfer' => 'info',
+                'Upon delivery-Creamy computer' => 'warning',
+            ];
+            $color = $colors[$method] ?? 'secondary';
+            return "<span class='badge badge-$color'>$method</span>";
+        });
         $show->field('created_at', 'Created At')->as(function ($created_at) {
             return date('Y-m-d H:i', strtotime($created_at));
         });
