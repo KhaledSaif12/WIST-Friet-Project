@@ -4,7 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\Addresses;
 use App\Models\DeliveryDetails;
-use \App\Models\Orders;
+use App\Models\Orders;
 use App\Models\User;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
@@ -29,17 +29,35 @@ class OrdersControllers extends AdminController
     {
         $grid = new Grid(new Orders());
 
-        $grid->column('id', 'ID')->sortable();
-        $grid->column('user.name', 'User Name'); // Display user name
-        $grid->column('address.name', 'Address Name'); // Display address name
-        $grid->column('delivery.vehiclenumber', 'Vehicle Number'); // Display delivery name
-        $grid->column('orderdelivrytime', 'Order Delivery Time');
-        $grid->column('deliverycost', 'Delivery Cost');
-        $grid->column('totalorderprice', 'Total Order Price');
-        $grid->column('orderstatas', 'Order Status');
+        $grid->column('id', 'ID')->sortable()->display(function ($id) {
+            return "<span class='badge bg-primary'>$id</span>";
+        });
+        $grid->column('user.name', 'User Name')->sortable()->display(function ($name) {
+            return "<strong>$name</strong>";
+        });
+        $grid->column('address.name', 'Address Name')->sortable();
+        $grid->column('delivery.vehiclenumber', 'Vehicle Number')->sortable();
+        $grid->column('orderdelivrytime', 'Order Delivery Time')->sortable()->display(function ($time) {
+            return date('Y-m-d H:i', strtotime($time));
+        });
+        $grid->column('deliverycost', 'Delivery Cost')->sortable()->display(function ($cost) {
+            return "$" . number_format($cost, 2);
+        });
+        $grid->column('totalorderprice', 'Total Order Price')->sortable()->display(function ($price) {
+            return "$" . number_format($price, 2);
+        });
+        $grid->column('orderstatas', 'Order Status')->label([
+            'In preparation' => 'info',
+            'On the way to you' => 'warning',
+            'Delivered' => 'success',
+        ]);
         $grid->column('paymentmethod', 'Payment Method');
-        $grid->column('created_at', 'Created At');
-        $grid->column('updated_at', 'Updated At');
+        $grid->column('created_at', 'Created At')->sortable()->display(function ($created_at) {
+            return "<small class='text-muted'>" . date('Y-m-d H:i', strtotime($created_at)) . "</small>";
+        });
+        $grid->column('updated_at', 'Updated At')->sortable()->display(function ($updated_at) {
+            return "<small class='text-muted'>" . date('Y-m-d H:i', strtotime($updated_at)) . "</small>";
+        });
 
         return $grid;
     }
@@ -55,16 +73,32 @@ class OrdersControllers extends AdminController
         $show = new Show(Orders::findOrFail($id));
 
         $show->field('id', 'ID');
-        $show->field('user.name', 'User Name'); // Display user name
-        $show->field('address.name', 'Address Name'); // Display address name
-        $show->field('delivery.vehiclenumber', 'Vehicle Number'); // Display delivery name
-        $show->field('orderdelivrytime', 'Order Delivery Time');
-        $show->field('deliverycost', 'Delivery Cost');
-        $show->field('totalorderprice', 'Total Order Price');
-        $show->field('orderstatas', 'Order Status');
+        $show->field('user.name', 'User Name');
+        $show->field('address.name', 'Address Name');
+        $show->field('delivery.vehiclenumber', 'Vehicle Number');
+        $show->field('orderdelivrytime', 'Order Delivery Time')->as(function ($time) {
+            return date('Y-m-d H:i', strtotime($time));
+        });
+        $show->field('deliverycost', 'Delivery Cost')->as(function ($cost) {
+            return "$" . number_format($cost, 2);
+        });
+        $show->field('totalorderprice', 'Total Order Price')->as(function ($price) {
+            return "$" . number_format($price, 2);
+        });
+        $show->field('orderstatas', 'Order Status')->as(function ($status) {
+            return "<span class='badge badge-" . [
+                'In preparation' => 'info',
+                'On the way to you' => 'warning',
+                'Delivered' => 'success',
+            ][$status] . "'>$status</span>";
+        });
         $show->field('paymentmethod', 'Payment Method');
-        $show->field('created_at', 'Created At');
-        $show->field('updated_at', 'Updated At');
+        $show->field('created_at', 'Created At')->as(function ($created_at) {
+            return date('Y-m-d H:i', strtotime($created_at));
+        });
+        $show->field('updated_at', 'Updated At')->as(function ($updated_at) {
+            return date('Y-m-d H:i', strtotime($updated_at));
+        });
 
         return $show;
     }
@@ -79,15 +113,12 @@ class OrdersControllers extends AdminController
         $form = new Form(new Orders());
 
         $form->display('id', 'ID');
-        $form->select('user_id', 'User')->options(User::all()->pluck('name', 'id')
-        )->rules('required');
-        $form->select('address_id', 'Address')->options(Addresses::all()->pluck('name', 'id')
-        )->rules('required');
-        $form->select('delivery_id', 'Vehicle Number')->options(DeliveryDetails::all()->pluck('vehiclenumber', 'id')
-        )->rules('required');
-        $form->time('orderdelivrytime', 'Order Delivery Time');
-        $form->decimal('deliverycost', 'Delivery Cost')->rules('required');
-        $form->decimal('totalorderprice', 'Total Order Price')->rules('required');
+        $form->select('user_id', 'User')->options(User::all()->pluck('name', 'id'))->rules('required');
+        $form->select('address_id', 'Address')->options(Addresses::all()->pluck('name', 'id'))->rules('required');
+        $form->select('delivery_id', 'Vehicle Number')->options(DeliveryDetails::all()->pluck('vehiclenumber', 'id'))->rules('required');
+        $form->datetime('orderdelivrytime', 'Order Delivery Time')->format('YYYY-MM-DD HH:mm');
+        $form->decimal('deliverycost', 'Delivery Cost')->rules('required')->prepend('$');
+        $form->decimal('totalorderprice', 'Total Order Price')->rules('required')->prepend('$');
         $form->select('orderstatas', 'Order Status')->options([
             'In preparation' => 'In preparation',
             'On the way to you' => 'On the way to you',

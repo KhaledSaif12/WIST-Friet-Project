@@ -45,4 +45,10 @@ class User extends Authenticatable implements LaratrustUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function addresses()
+{
+    return $this->hasMany(Addresses::class);
+}
+
 }
