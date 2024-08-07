@@ -30,13 +30,13 @@ return [
 
     'disks' => [
 
-        'admin'=>[
-            'driver'=>'local',
-            'root'=>public_path('uploads'),
-            'visibility'=>'public',
-            'url'=>env('APP_URL').'/uploads',
-
+        'admin' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+            'visibility' => 'public',
+            'url' => env('APP_URL').'/public/storage/',
         ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -62,13 +62,14 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-            // إضافة التكوين لجهاز التخزين admin
-    'admin' => [
-        'driver' => 'local',
-        'root' => storage_path('app/admin'),
-        'throw' => false,
-    ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => public_path('storage/images'),
+            'visibility' => 'public',
+            'url' => env('APP_URL').'/storage/images',
+            'throw' => false,
+        ],
     ],
 
     /*
@@ -83,7 +84,8 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+    public_path('storage') => storage_path('app/public'),
     ],
+
 
 ];

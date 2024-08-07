@@ -68,13 +68,7 @@ class DeliveryDetailsControllers extends AdminController
     {
         $form = new Form(new DeliveryDetails());
 
-        // تعديل لاسترجاع المستخدمين الذين لديهم دور ID يساوي 2
-        $form->select('usar_id', __('User'))->options(
-            User::whereHas('roles', function ($query) {
-                $query->where('id', 2);
-            })->pluck('name', 'id')
-        )->rules('required|integer'); // استخدم select لعرض المستخدمين
-
+        $form->select('usar_id', __('User'))->options(User::all()->pluck('name', 'id'))->rules('required|integer'); // استخدم select لعرض المستخدمين
         $form->text('vehicletype', __('Vehicle Type'))->rules('required|string|max:255');
         $form->text('vehiclenumber', __('Vehicle Number'))->rules('required|string|max:255');
         $form->image('vehicleimage', __('Vehicle Image'))->rules('required|image|mimes:jpeg,png,jpg,gif|max:2048'); // Add validation rules for the image

@@ -33,7 +33,7 @@ class FarmsControllers extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('name', __('Name'));
         $grid->column('commercialregistrationno', __('Commercial Registration No'));
-        $grid->column('image')->image();
+        $grid->column('image', __('Image'))->image('/storage', 100, 100);
         $grid->column('user.name', __('User'))->sortable(); // Display user name instead of user_id
         $grid->column('address.name', __('Address'))->sortable(); // Display address name instead of address_id
         $grid->column('created_at', __('Created At'));
@@ -56,7 +56,7 @@ class FarmsControllers extends AdminController
         $show->field('id', __('ID'));
         $show->field('name', __('Name'));
         $show->field('commercialregistrationno', __('Commercial Registration No'));
-        $show->field('image', __('Image'));
+        $show->field('image', __('Image'))->image('/storage/images');
         $show->field('user.name', __('User')); // Display user name
         $show->field('address.name', __('Address')); // Display address name
         $show->field('created_at', __('Created At'));
@@ -71,16 +71,30 @@ class FarmsControllers extends AdminController
      * @return Form
      */
     protected function form()
-    {
-        $form = new Form(new Farms());
+{
+    $form = new Form(new Farms());
 
-        // Define form fields here
-        $form->text('name', __('Name'));
-        $form->number('commercialregistrationno', __('Commercial Registration No'));
-        $form->image('image', __('Image'));
-        $form->select('user_id', __('User'))->options(User::all()->pluck('name', 'id'));
-        $form->select('address_id', __('Address'))->options(Addresses::all()->pluck('name', 'id'));
+    $form->text('name', __('Name'));
+    $form->number('commercialregistrationno', __('Commercial Registration No'));
+    $form->image('image', __('Image'))->rules('required|image|mimes:jpeg,png,jpg,gif|max:2048');
+    $form->select('user_id', __('User'))->options(User::all()->pluck('name', 'id'));
+    $form->select('address_id', __('Address'))->options(Addresses::all()->pluck('name', 'id'));
 
-        return $form;
-    }
+    $form->saving(function (Form $form) {
+        if ($form->image && $form->image instanceof \Illuminate\Http\UploadedFile) {
+            // Generate a unique file name
+            $fileName = time() . '_' . $form->image->getClientOriginalName();
+
+            // Store the image in the 'public/images' directory
+            $path = $form->image->storeAs('public/images', $fileName);
+
+            // Store the file name in the database
+            $form->model()->image = basename($path);
+        }
+    });
+
+    return $form;
+}
+
+
 }
