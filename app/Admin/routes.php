@@ -5,6 +5,11 @@ use App\Admin\Controllers\CategoriesControllers;
 use App\Admin\Controllers\DeliveryDetailsControllers;
 use App\Admin\Controllers\SeasonsControllers;
 use App\Admin\Controllers\UserController;
+use App\Admin\Controllers\OrdersControllers; // Add OrdersControllers
+use App\Admin\Controllers\FarmsControllers; // Add FarmsControllers
+use App\Admin\Controllers\ProductsControllers; // Add ProductsControllers
+use App\Admin\Controllers\OrderItemsControllers; // Add OrderItemsControllers
+use App\Admin\Controllers\OrderApiController; // Add OrderApiController
 use Illuminate\Routing\Router;
 
 Admin::routes();
@@ -26,6 +31,9 @@ Route::group([
     $router->resource('delivery-details', DeliveryDetailsControllers::class);
     $router->resource('orders', OrdersControllers::class);
     $router->resource('order-items', OrderItemsControllers::class);
+
+
+    
 
 
 

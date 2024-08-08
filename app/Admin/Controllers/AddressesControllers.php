@@ -31,7 +31,8 @@ class AddressesControllers extends AdminController
         $grid->column('id', __('ID'))->sortable();
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
-        $grid->column('addresslink', __('Address Link'));
+        $grid->column('lat', __('Latitude')); // Add the new latitude column
+        $grid->column('lan', __('Longitude'));
         $grid->column('city', __('City'));
         $grid->column('user.name', __('User'))->sortable(); // Display user name instead of user_id
         $grid->column('created_at', __('Created At'));
@@ -54,7 +55,8 @@ class AddressesControllers extends AdminController
         $show->field('id', __('ID'));
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));
-        $show->field('addresslink', __('Address Link'));
+        $show->field('lat', __('Latitude')); // Add the new latitude field
+        $show->field('lan', __('Longitude')); // Add the new longitude field
         $show->field('city', __('City'));
         $show->field('user.name', __('User')); // Display user name
         $show->field('created_at', __('Created At'));
@@ -75,7 +77,10 @@ class AddressesControllers extends AdminController
         // Define form fields here
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));
-        $form->textarea('addresslink', __('Address Link'));
+        $form->decimal('lat', __('Latitude'))
+            ->rules('required|numeric'); // Add the new latitude field
+        $form->decimal('lan', __('Longitude'))
+            ->rules('required|numeric'); // Add the new longitude field
         $form->text('city', __('City'));
         $form->select('user_id', __('User'))->options(User::all()->pluck('name', 'id')); // Dropdown to select user
 

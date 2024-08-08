@@ -13,7 +13,11 @@ class DeliveryDetails extends Model
     }
 
     
-
+    // تعريف العلاقة مع Orders
+    public function orders()
+    {
+        return $this->hasMany(Orders::class, 'delivery_id'); 
+    }
     
 
     

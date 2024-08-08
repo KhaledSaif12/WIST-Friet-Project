@@ -6,6 +6,8 @@ use App\Models\Categories;
 use App\Models\Farms;
 use \App\Models\Products;
 use App\Models\Seasons;
+use Illuminate\Support\Str; // Import Str facade
+
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
@@ -87,8 +89,10 @@ class ProductsControllers extends AdminController
     protected function form()
     {
         $form = new Form(new Products());
-
-        $form->text('name', __('Name'))->rules('required');
+    
+        $form->text('name', __('Name'))
+            ->rules('required');
+    
         $form->decimal('prais', __('Price'))->rules('required|min:0'); // تصحيح الاسم من 'prais' إلى 'price'
         $form->number('quantity', __('Quantity'))->rules('required|min:0');
         $form->image('photo', __('Photo'))->rules('required')->uniqueName();
@@ -104,8 +108,8 @@ class ProductsControllers extends AdminController
         })->rules('required');
         $form->date('data', __('Date'))->rules('required'); // تأكد من تطابق اسم العمود مع قاعدة البيانات
         $form->switch('productstatus', __('Product Status'))->default(1);
-        $form->text('slug', __('Slug'))->rules('required');
-
+        $form->text('slug', __('Slug'))->rules('required')->disable();
+    
         return $form;
-    }
+    }    
 }
