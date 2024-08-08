@@ -37,7 +37,7 @@ class ProductsControllers extends AdminController
             return '$' . number_format($price, 2);
         });
         $grid->column('quantity', __('Quantity'))->sortable();
-        $grid->column('photo', __('Photo'))->image('', 50, 50);
+        $grid->column('photo', __('Photo'))->image('/storage', 50, 50);
         $grid->column('description', __('Description'))->limit(50);
         $grid->column('category.name', __('Category'));
         $grid->column('season.seasonsname', __('Season'));
@@ -67,7 +67,7 @@ class ProductsControllers extends AdminController
             return '$' . number_format($price, 2);
         });
         $show->field('quantity', __('Quantity'));
-        $show->field('photo', __('Photo'))->image();
+        $show->field('photo', __('Photo'))->image('/storage/images');
         $show->field('description', __('Description'));
         $show->field('category.name', __('Category'));
         $show->field('season.seasonsname', __('Season'));
@@ -89,11 +89,17 @@ class ProductsControllers extends AdminController
     protected function form()
     {
         $form = new Form(new Products());
+<<<<<<< HEAD
     
         $form->text('name', __('Name'))
             ->rules('required');
     
         $form->decimal('prais', __('Price'))->rules('required|min:0'); // تصحيح الاسم من 'prais' إلى 'price'
+=======
+
+        $form->text('name', __('Name'))->rules('required');
+        $form->decimal('prais', __('Price'))->rules('required|min:0');
+>>>>>>> 9823677ac0ba21dd320ef21e56eb872ca352a377
         $form->number('quantity', __('Quantity'))->rules('required|min:0');
         $form->image('photo', __('Photo'))->rules('required')->uniqueName();
         $form->textarea('description', __('Description'))->rules('required');
@@ -101,12 +107,12 @@ class ProductsControllers extends AdminController
             return Categories::all()->pluck('name', 'id')->toArray();
         })->rules('required');
         $form->select('season_id', __('Season'))->options(function () {
-            return Seasons::all()->pluck('seasonsname', 'id')->toArray(); // تأكد من أن هذا هو اسم العمود الصحيح في الجدول Seasons
+            return Seasons::all()->pluck('seasonsname', 'id')->toArray();
         })->rules('required');
         $form->select('farm_id', __('Farm'))->options(function () {
             return Farms::all()->pluck('name', 'id')->toArray();
         })->rules('required');
-        $form->date('data', __('Date'))->rules('required'); // تأكد من تطابق اسم العمود مع قاعدة البيانات
+        $form->date('data', __('Date'))->rules('required');
         $form->switch('productstatus', __('Product Status'))->default(1);
         $form->text('slug', __('Slug'))->rules('required')->disable();
     

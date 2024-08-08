@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AddressesController;
 use App\Http\Controllers\API\APILoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,11 @@ Route::post('login', [APILoginController::class, 'login']);
 Route::post('register', [APILoginController::class, 'register']);
 
 
-Route::group(['middleware'=>'auth:sanctum'],function(){
-
-
+// مسارات API لعنوان
+Route::middleware('auth:sanctum')->prefix('addresses')->group(function () {
+    Route::get('/', [AddressesController::class, 'index']); // عرض جميع العناوين الخاصة بالمستخدم
+    Route::get('/{id}', [AddressesController::class, 'show']); // عرض عنوان محدد
+    Route::post('/', [AddressesController::class, 'store']); // إنشاء عنوان جديد
+    Route::put('/{id}', [AddressesController::class, 'update']); // تحديث عنوان موجود
+    Route::delete('/{id}', [AddressesController::class, 'destroy']); // حذف عنوان
 });
