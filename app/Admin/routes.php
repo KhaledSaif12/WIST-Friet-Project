@@ -3,6 +3,7 @@
 use App\Admin\Controllers\AddressesControllers;
 use App\Admin\Controllers\CategoriesControllers;
 use App\Admin\Controllers\DeliveryDetailsControllers;
+use App\Admin\Controllers\ReviewControllers;
 use App\Admin\Controllers\SeasonsControllers;
 use App\Admin\Controllers\UserController;
 use App\Admin\Controllers\OrdersControllers; // Add OrdersControllers
@@ -31,9 +32,11 @@ Route::group([
     $router->resource('delivery-details', DeliveryDetailsControllers::class);
     $router->resource('orders', OrdersControllers::class);
     $router->resource('order-items', OrderItemsControllers::class);
+    $router->resource('order-items', OrderItemsControllers::class);
+    $router->resource('reviews', ReviewControllers::class);
 
 
-    
+
 
 
 

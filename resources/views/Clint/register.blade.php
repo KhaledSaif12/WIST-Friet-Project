@@ -23,6 +23,10 @@
             <input type="password" id="password_confirmation" name="password_confirmation" required>
         </div>
         <div>
+            <label for="phone">رقم الهاتف:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div>
             <label for="role_id">نوع المستخدم:</label>
             <select id="role_id" name="role_id" required>
                 <option value="">اختر نوع المستخدم</option>

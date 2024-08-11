@@ -77,10 +77,10 @@ class AddressesControllers extends AdminController
         // Define form fields here
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));
-        $form->decimal('lat', __('Latitude'))
-            ->rules('required|numeric'); // Add the new latitude field
-        $form->decimal('lan', __('Longitude'))
-            ->rules('required|numeric'); // Add the new longitude field
+        $form->text('lat', __('Latitude'))
+            ->rules('required|string'); // Add the new latitude field
+        $form->text('lan', __('Longitude'))
+            ->rules('required|string'); // Add the new longitude field
         $form->text('city', __('City'));
         $form->select('user_id', __('User'))->options(User::all()->pluck('name', 'id')); // Dropdown to select user
 

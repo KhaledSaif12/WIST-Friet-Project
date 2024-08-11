@@ -14,8 +14,8 @@ return new class extends Migration
         //
         Schema::table('addresses', function (Blueprint $table) {
             // إضافة الحقول الجديدة
-            $table->float('lat');
-            $table->float('lan');
+            $table->string('lat');
+            $table->string('lan');
 
             // حذف الحقل القديم
             $table->dropColumn('addresslink');

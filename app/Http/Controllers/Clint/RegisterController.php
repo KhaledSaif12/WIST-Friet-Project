@@ -26,6 +26,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'role_id' => 'required|exists:roles,id',
+            'phone' => 'required|string|max:15', // إضافة التحقق لرقم الهاتف
         ]);
 
         // إنشاء مستخدم جديد
@@ -33,6 +34,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone' => $request->phone, // إضافة رقم الهاتف
         ]);
 
         // تعيين الدور للمستخدم

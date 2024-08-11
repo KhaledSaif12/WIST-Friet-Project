@@ -1,8 +1,10 @@
 <?php
 
+// app/Admin/Controllers/DeliveryDetailsControllers.php
+
 namespace App\Admin\Controllers;
 
-use \App\Models\DeliveryDetails;
+use App\Models\DeliveryDetails;
 use App\Models\User;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
@@ -12,14 +14,14 @@ use OpenAdmin\Admin\Show;
 class DeliveryDetailsControllers extends AdminController
 {
     /**
-     * Title for current resource.
+     * عنوان المورد الحالي.
      *
      * @var string
      */
     protected $title = 'DeliveryDetails';
 
     /**
-     * Make a grid builder.
+     * إنشاء شبكة بيانات.
      *
      * @return Grid
      */
@@ -31,7 +33,7 @@ class DeliveryDetailsControllers extends AdminController
         $grid->column('user.name', __('User Name')); // عرض اسم المستخدم
         $grid->column('vehicletype', __('Vehicle Type'));
         $grid->column('vehiclenumber', __('Vehicle Number'));
-        $grid->column('vehicleimage', __('Vehicle Image'))->image(); // Show image preview in the grid
+        $grid->column('vehicleimage', __('Vehicle Image'))->image(); // عرض معاينة الصورة في الشبكة
         $grid->column('created_at', __('Created At'));
         $grid->column('updated_at', __('Updated At'));
 
@@ -39,7 +41,7 @@ class DeliveryDetailsControllers extends AdminController
     }
 
     /**
-     * Make a show builder.
+     * إنشاء شاشة التفاصيل.
      *
      * @param mixed $id
      * @return Show
@@ -52,7 +54,7 @@ class DeliveryDetailsControllers extends AdminController
         $show->field('user.name', __('User Name')); // عرض اسم المستخدم
         $show->field('vehicletype', __('Vehicle Type'));
         $show->field('vehiclenumber', __('Vehicle Number'));
-        $show->field('vehicleimage', __('Vehicle Image'))->image(); // Show image preview in detail view
+        $show->field('vehicleimage', __('Vehicle Image'))->image(); // عرض معاينة الصورة في تفاصيل العرض
         $show->field('created_at', __('Created At'));
         $show->field('updated_at', __('Updated At'));
 
@@ -60,7 +62,7 @@ class DeliveryDetailsControllers extends AdminController
     }
 
     /**
-     * Make a form builder.
+     * إنشاء نموذج البيانات.
      *
      * @return Form
      */
@@ -71,7 +73,7 @@ class DeliveryDetailsControllers extends AdminController
         $form->select('usar_id', __('User'))->options(User::all()->pluck('name', 'id'))->rules('required|integer'); // استخدم select لعرض المستخدمين
         $form->text('vehicletype', __('Vehicle Type'))->rules('required|string|max:255');
         $form->text('vehiclenumber', __('Vehicle Number'))->rules('required|string|max:255');
-        $form->image('vehicleimage', __('Vehicle Image'))->rules('required|image|mimes:jpeg,png,jpg,gif|max:2048'); // Add validation rules for the image
+        $form->image('vehicleimage', __('Vehicle Image'))->rules('required|image|mimes:jpeg,png,jpg,gif|max:2048'); // إضافة قواعد التحقق من الصورة
 
         return $form;
     }

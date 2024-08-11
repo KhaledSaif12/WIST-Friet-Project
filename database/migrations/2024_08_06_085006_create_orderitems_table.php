@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderitemsTable extends Migration
+class CreateOrderItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateOrderitemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderitems', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('quantity');
-            $table->decimal('total_product_price');
+            $table->decimal('total_product_price', 10, 2);
+            $table->timestamp('order_delivery_time')->nullable();
+            $table->string('status')->default('Pending'); // حقل الحالة
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('order_id')->references('id')->on('orders');
 
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -33,6 +37,6 @@ class CreateOrderitemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderitems');
+        Schema::dropIfExists('order_items');
     }
 }

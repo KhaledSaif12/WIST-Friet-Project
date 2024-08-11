@@ -41,7 +41,8 @@ class AddressesController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'addresslink' => 'required|string',
+            'lat' => 'required|string',
+            'lan' => 'required|string',
             'city' => 'nullable|string|max:255'
         ]);
 
@@ -52,7 +53,8 @@ class AddressesController extends Controller
         $address = Addresses::create([
             'name' => $request->name,
             'description' => $request->description,
-            'addresslink' => $request->addresslink,
+            'lat' => $request->lat,
+            'lan' => $request->lan,
             'city' => $request->city,
             'user_id' => Auth::id() // الحصول على معرف المستخدم من التوكن
         ]);
@@ -71,7 +73,8 @@ class AddressesController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'addresslink' => 'required|string',
+            'lat' => 'required|string',
+            'lan' => 'required|string',
             'city' => 'nullable|string|max:255'
         ]);
 

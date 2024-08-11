@@ -13,7 +13,8 @@ class Addresses extends Model
     protected $fillable = [
         'name',
         'description',
-        'addresslink',
+        'lat',
+        'lan',
         'city',
         'user_id'
     ];

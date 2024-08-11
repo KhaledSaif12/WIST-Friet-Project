@@ -131,26 +131,54 @@ class OrdersControllers extends AdminController
         $form = new Form(new Orders());
 
         $form->display('id', 'ID');
-        $form->select('user_id', 'User')->options(User::all()->pluck('name', 'id'))->rules('required');
-        $form->select('address_id', 'Address')->options(Addresses::all()->pluck('name', 'id'))->rules('required');
-        $form->select('delivery_id', 'Vehicle Number')->options(DeliveryDetails::all()->pluck('vehiclenumber', 'id'))->rules('required');
-        $form->datetime('orderdelivrytime', 'Order Delivery Time')->format('YYYY-MM-DD HH:mm');
-        $form->decimal('deliverycost', 'Delivery Cost')->rules('required')->prepend('$');
-        $form->decimal('totalorderprice', 'Total Order Price')->rules('required')->prepend('$');
-        $form->select('orderstatas', 'Order Status')->options([
-            'In preparation' => 'In preparation',
-            'On the way to you' => 'On the way to you',
-            'Delivered' => 'Delivered',
-        ])->rules('required');
-        $form->select('paymentmethod', 'Payment Method')->options([
-            'Credit Card' => 'Credit Card',
-            'PayPal' => 'PayPal',
-            'Bank Transfer' => 'Bank Transfer',
-            'Upon delivery-Creamy computer' => 'Upon delivery-Creamy computer',
-        ])->rules('required');
+
+        // الحقول المطلوبة (Required Fields)
+        $form->select('user_id', 'User')
+             ->options(User::all()->pluck('name', 'id'))
+             ->rules('required'); // جعل الحقل مطلوب
+
+        $form->select('address_id', 'Address')
+             ->options(Addresses::all()->pluck('name', 'id'))
+             ->rules('required'); // جعل الحقل مطلوب
+
+        $form->datetime('orderdelivrytime', 'Order Delivery Time')
+             ->format('YYYY-MM-DD HH:mm')
+             ->rules('required'); // جعل الحقل مطلوب
+
+        $form->decimal('totalorderprice', 'Total Order Price')
+             ->rules('required') // جعل الحقل مطلوب
+             ->prepend('$');
+
+        // الحقول التي يمكن أن تكون فارغة (Optional Fields)
+        $form->select('delivery_id', 'Vehicle Number')
+             ->options(DeliveryDetails::all()->pluck('vehiclenumber', 'id'))
+             ->rules('nullable'); // السماح بقبول قيمة null
+
+        $form->decimal('deliverycost', 'Delivery Cost')
+             ->prepend('$')
+             ->rules('nullable'); // السماح بقبول قيمة null
+
+        $form->select('orderstatas', 'Order Status')
+             ->options([
+                 'In preparation' => 'In preparation',
+                 'On the way to you' => 'On the way to you',
+                 'Delivered' => 'Delivered',
+             ])
+             ->rules('nullable'); // السماح بقبول قيمة null
+
+        $form->select('paymentmethod', 'Payment Method')
+             ->options([
+                 'Credit Card' => 'Credit Card',
+                 'PayPal' => 'PayPal',
+                 'Bank Transfer' => 'Bank Transfer',
+                 'Upon delivery-Creamy computer' => 'Upon delivery-Creamy computer',
+             ])
+             ->rules('nullable'); // السماح بقبول قيمة null
+
         $form->display('created_at', 'Created At');
         $form->display('updated_at', 'Updated At');
 
         return $form;
     }
+
 }

@@ -89,17 +89,9 @@ class ProductsControllers extends AdminController
     protected function form()
     {
         $form = new Form(new Products());
-<<<<<<< HEAD
-    
-        $form->text('name', __('Name'))
-            ->rules('required');
-    
-        $form->decimal('prais', __('Price'))->rules('required|min:0'); // تصحيح الاسم من 'prais' إلى 'price'
-=======
 
         $form->text('name', __('Name'))->rules('required');
         $form->decimal('prais', __('Price'))->rules('required|min:0');
->>>>>>> 9823677ac0ba21dd320ef21e56eb872ca352a377
         $form->number('quantity', __('Quantity'))->rules('required|min:0');
         $form->image('photo', __('Photo'))->rules('required')->uniqueName();
         $form->textarea('description', __('Description'))->rules('required');
@@ -115,7 +107,7 @@ class ProductsControllers extends AdminController
         $form->date('data', __('Date'))->rules('required');
         $form->switch('productstatus', __('Product Status'))->default(1);
         $form->text('slug', __('Slug'))->rules('required')->disable();
-    
+
         return $form;
-    }    
+    }
 }
