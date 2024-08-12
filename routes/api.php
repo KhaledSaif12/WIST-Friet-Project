@@ -59,6 +59,9 @@ Route::get('/products/{id}', [ProductsController::class, 'getProduct']);
 // Route لإرجاع جميع المنتجات
 Route::get('/products', [ProductsController::class, 'getAllProducts']);
 
+Route::get('products/category/{categoryId}', [ProductsController::class, 'getProductsByCategory']);
+
+
 Route::middleware('auth:sanctum')->prefix('order-items')->group(function () {
     Route::get('/', [OrderItemsController::class, 'index']); // عرض جميع عناصر الطلب الخاصة بالمستخدم
     Route::get('/{id}', [OrderItemsController::class, 'show']); // عرض عنصر طلب محدد

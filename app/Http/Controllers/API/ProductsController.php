@@ -46,4 +46,28 @@ class ProductsController extends Controller
 
         return response()->json($products, 200);
     }
+
+    // دالة لإرجاع المنتجات بناءً على الـ category_id
+    public function getProductsByCategory($categoryId)
+    {
+        $products = Products::with('category')
+                            ->select('id', 'name', 'prais', 'quantity', 'photo', 'description', 'category_id', 'productstatus')
+                            ->where('category_id', $categoryId)
+                            ->get();
+
+        // تحويل القيم لكل منتج
+        $products->transform(function ($product) {
+            $product->category_name = $product->category->name; // إرجاع اسم الفئة
+
+            unset($product->category_id); // حذف الـ category_id لأننا أضفنا الاسم
+            unset($product->category); // حذف الـ category object
+            return $product;
+        });
+
+        if ($products->isEmpty()) {
+            return response()->json(['message' => 'No products found for this category'], 404);
+        }
+
+        return response()->json($products, 200);
+    }
 }
