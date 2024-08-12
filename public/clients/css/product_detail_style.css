@@ -1,0 +1,87 @@
+
+.product-detail {
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .product-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+  }
+
+  .product-icon {
+    font-size: 24px;
+    color: #198754;
+    cursor: pointer;
+  }
+
+  .product-actions .btn {
+    background-color: #198754;
+    color: #fff;
+    border: none;
+  }
+
+  .product-name {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .product-pricing {
+    margin: 10px 0;
+  }
+
+  .current-price {
+    font-size: 22px;
+    color: #198754;
+  }
+
+  .former-price {
+    font-size: 18px;
+    color: #6c757d;
+    text-decoration: line-through;
+    margin-left: 10px;
+  }
+
+  .product-rating {
+    margin: 10px 0;
+  }
+
+  .stars {
+    color: #ffcc00;
+    font-size: 20px;
+  }
+
+  .rating-count {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .discount-message {
+    font-size: 18px;
+    color: #dc3545;
+    margin: 10px 0;
+  }
+
+  .countdown {
+    font-size: 20px;
+    color: #198754;
+  }
+
+  #days,
+  #hours,
+  #minutes,
+  #seconds {
+    font-weight: bold;
+    margin: 0 5px;
+  }

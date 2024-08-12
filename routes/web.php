@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\ProductsControllers;
 use App\Http\Controllers\Clint\loginController;
 use App\Http\Controllers\Clint\RegisterController ;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('clint.layout.master');
 });
 
 
@@ -26,3 +27,10 @@ Route::post('login', [loginController::class, 'login'])->name('login');
 
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
+
+
+Route::get('products', [ProductsControllers::class, 'showProducts'])->name('products');
+Route::get('/products/{id}', [ProductsControllers::class, 'showProductDetails'])->name('productdetails');
+
+
+

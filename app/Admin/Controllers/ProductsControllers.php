@@ -110,4 +110,17 @@ class ProductsControllers extends AdminController
 
         return $form;
     }
+    public function showProducts()
+    {
+        $products = Products::orderBy('id', 'desc')->get();
+        return view('Clint.Prodact', ['products_all' => $products]);
+    }
+    public function showProductDetails($id)
+    {
+        // Retrieve the product by its ID
+        $product = Products::findOrFail($id);
+
+        // Return the view with the product details
+        return view('Clint.products_details', ['product' => $product]);
+    }
 }
