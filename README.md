@@ -1,1 +1,0 @@
-# WIST-Friet-Project
