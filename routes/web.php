@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('clint.layout.master');
-});
+    return view('Clint.Index');
+})->name('Home');
 
 
 Route::get('login', [loginController::class, 'show'])->name('login.form');
@@ -29,8 +29,8 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 
 
-Route::get('products', [ProductsControllers::class, 'showProducts'])->name('products');
-Route::get('/products/{id}', [ProductsControllers::class, 'showProductDetails'])->name('productdetails');
+
+
 
 
 

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-16" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Big Cart</title>
-    <link rel="stylesheet" href="{{asset('clients/css/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('clients/css/bootsrtap/bootstrap.css')}}" />
-    <link rel="stylesheet" href="{{asset('clients/css/bootsrtap/bootstrap.min.css')}}" />
+    <title>My Farm</title>
+    <link rel="stylesheet" href="{{asset('client/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('client/css/bootsrtap/bootstrap.css')}}" />
   </head>
   <body dir="rtl">
-
-<!-- Start Head and Nav  -->
-@include('Clint.Incloude.hedar')
+    <!-- Start Head and Nav  -->
+    @include('Clint.Incloude.hedar')
 <!-- End Head and Nav  -->
 
     <!-- Start Content  -->
+    <!-- Start Content  -->
     @yield('content')
     <!-- End Content  -->
+    <!-- End Content  -->
+
+    <!-- Start Footer  -->
+    @include('Clint.Incloude.Footer')
+
+    <!-- End Footer  -->
+
     <!-- Start Script  -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
